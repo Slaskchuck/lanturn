@@ -5,6 +5,9 @@ networks:
   private:
     internal: true
     driver: bridge
+  database:
+    internal: true
+    driver: bridge
 
 services:
   api:
@@ -12,7 +15,28 @@ services:
       context: ./src/api
       dockerfile: Dockerfile
     container_name: tutor-api
+    depends_on:
+      - database
+    ports:
+      - '5000:5000'
     volumes:
       - "./src/api:/src"
     networks:
-      - private
+      - public
+      - database
+  database:
+    image: mysql:8
+    container_name: tutor-database
+    restart: always
+    env_file:
+      - docker/env/database
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    networks:
+      - public
+      - database
+    
+volumes:
+  database:

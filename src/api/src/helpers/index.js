@@ -3,9 +3,8 @@ export const successResponse = (req, res, data = {}, code = 200) =>
     ...data,
   });
 
-export const errorResponse = (req, res, message = "Something went wrong", code = 500, error = {}) =>
-  res.status(500).json({
-    code,
-    message,
-    error,
+export const errorResponse = (req, res, error) =>
+  res.status(error.code).json({
+    message: error.message,
+    details: error.details,
   });

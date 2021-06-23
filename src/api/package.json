@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config src/server.js dotenv_config_path=./.env",
+    "dev": "nodemon -L -r dotenv/config src/server.js dotenv_config_path=./.env",
     "db:create": "npx sequelize-cli db:create",
     "db:migrate": "npx sequelize-cli db:migrate",
     "test": "jest --testTimeout=30000  --watchAll --runInBand ",
-    "pretest": "cross-env NODE_ENV=test npm run db:reset:test", 
+    "pretest": "cross-env NODE_ENV=test npm run db:reset:test",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
     "db:reset:test": "cross-env NODE_ENV=test npx sequelize-cli db:drop && cross-env NODE_ENV=test npx sequelize-cli db:create && cross-env NODE_ENV=test npx sequelize-cli db:migrate"
   },
@@ -36,6 +36,7 @@
     "@babel/register": "^7.13.8",
     "@babel/runtime": "^7.13.10",
     "babel-loader": "^8.2.2",
+    "bluebird": "^3.7.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

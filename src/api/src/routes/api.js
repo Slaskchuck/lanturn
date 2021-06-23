@@ -1,13 +1,22 @@
-import express from "express";
+import express from 'express'
+import fs from 'fs'
+import path from 'path'
 
-import { validate } from "express-validation";
+const router = express.Router()
 
-import * as apiController from "../controllers/api.controller";
-import * as apiValidator from "../controllers/api.validator";
+const routes = fs.readdirSync(__dirname)
 
-const router = express.Router();
+routes.map(route => {
+  if (route === 'api.js')
+    return
 
-// api/register
-router.post("/register", validate(apiValidator.register, { keyByField: true }), apiController.register);
+  const apiRoutes = require(path.resolve(__dirname, route))
 
-module.exports = router;
+  Object.keys(apiRoutes).map(method => {
+    apiRoutes[method].map(endpoint => {
+      router[method](`/${path.basename(route, '.js')}${endpoint.path}`, endpoint.validator, endpoint.controller)
+    })
+  })
+})
+
+module.exports = router
