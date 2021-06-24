@@ -7,6 +7,7 @@
     "dev": "nodemon -L -r dotenv/config src/server.js dotenv_config_path=./.env",
     "db:create": "npx sequelize-cli db:create",
     "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all",
     "test": "jest --testTimeout=30000  --watchAll --runInBand ",
     "pretest": "cross-env NODE_ENV=test npm run db:reset:test",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
