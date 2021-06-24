@@ -23,7 +23,22 @@ services:
       - "./src/api:/src"
     networks:
       - public
+      - private
       - database
+  web:
+    build:
+      context: ./src/frontend
+      dockerfile: Dockerfile
+    container_name: tutor-web
+    depends_on:
+      - api
+    ports:
+      - '80:80'
+    volumes:
+      - "./src/frontend:/src"
+    networks:
+      - public
+      - private
   database:
     image: mysql:8
     container_name: tutor-database
