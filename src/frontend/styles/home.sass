@@ -1,0 +1,87 @@
+.container
+  min-height: 100vh
+  padding: 0 0.5rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 100vh
+  width: 600px
+  margin: 0 auto
+
+  .main
+    padding: 5rem 0
+    flex: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+
+  .division
+    width: 100%
+
+.form-container
+
+  .input-container
+    display: flex
+
+    .input-block
+      padding: 5px
+      width: 60%
+      display: inline-flex
+      flex-direction: row
+
+      .input-label
+        flex-grow: 1
+      
+      input
+        flex-grow: 2
+        width: 100%
+        margin-left: 5px
+
+      .error-label
+        color: red
+        display: none
+
+    .button-container
+      display: inline-flex
+      align-items: center
+      padding: 5px
+  
+    &-error
+      .input-block
+        padding: 5px
+        width: 60%
+        display: inline-flex
+        flex-direction: row
+        flex-wrap: wrap
+
+        .input-label
+          flex-grow: 1
+        
+        input
+          flex-grow: 2
+          margin-left: 5px
+
+        .error-label
+          color: red
+          display: block
+
+      .button-container
+        display: inline-flex
+        align-items: flex-start
+        padding: 5px
+
+.tutor
+  display: flex
+  align-items: center
+
+  p
+    margin: 5px 5px 0 0
+
+.student-container
+  margin: 10px 0 0 0
+
+  .student
+    margin: 0 0
