@@ -86,9 +86,13 @@ const Home = () => {
           </div>
           <div className='student-container'>
             <label>Common Student List:</label>
-            {
-              tutor.commonStudents.map(student => <p key={student} className='student'>{student}</p>)
-            }
+            <table>
+              <tbody>
+              {
+                tutor.commonStudents.map(student => <tr key={student}><td>{student}</td></tr>)
+              }
+              </tbody>
+            </table>
           </div>
         </div>
       </main>

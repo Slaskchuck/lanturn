@@ -75,7 +75,7 @@ describe('Register API', () => {
       const { message, details } = body
 
       expect(message).toEqual('Duplicate Data')
-      expect(details).toEqual([{ 'duplicateStudent@sample.com': 'This email is already enrolled' }])
+      expect(details).toEqual([{ 'duplicateStudent@sample.com': 'duplicateStudent@sample.com is already enrolled' }])
       expect(statusCode).toEqual(400)
       done()
     })
