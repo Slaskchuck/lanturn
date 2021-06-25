@@ -35,7 +35,7 @@ export class Student {
       throw new BadRequest(
         'Duplicate Data',
         tutorStudents.map(tutorStudent => ({
-          [tutorStudent.Student.email]: "This email is already enrolled"
+          [tutorStudent.Student.email]: `${tutorStudent.Student.email} is already enrolled`
         }))
       )
     }

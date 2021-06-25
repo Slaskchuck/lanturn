@@ -21,6 +21,13 @@ npm run db:seed
 yarn db:seed
 ```
 
+4. Copy the `.env.sample` and rename it to `.env.` The same with `.env.test.sample` and rename it to `.env.test`. If using **docker compose** follow the code bellow
+```bash
+DB_HOST=localhost
+# for docker compose
+DB_HOST=database
+```
+
 **Ignore if using docker**\
 4. Run the server
 ```bash
